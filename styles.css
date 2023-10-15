@@ -1,0 +1,191 @@
+:root {
+  --topnav-height: 170px;
+}
+
+body {
+  margin: 0;
+  font-size: 1.1rem;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.topnav {
+  margin: 0;
+  padding: 2rem;
+  color: white;
+}
+
+.title {
+  font-family: 'Sacramento', cursive;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.fixtop {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  bottom:  auto;
+  backdrop-filter: blur(13px);
+  background-color: rgba(90,90,90,0.6);
+  text-shadow: 0.2rem 0.2rem 10px #39495c;
+  z-index: 9;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.topnav-spacer {
+  margin-top: var(--topnav-height);
+  border-top: 2px solid black;
+}
+
+.img-fullwidth {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 800px;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+  min-height: 50vw;
+  border-bottom: 2px solid black;
+  box-shadow: 1rem 1rem 1rem rgba(0,0,0,0.1);
+}
+
+@media screen and (max-width:800px) {
+  .img-fullwidth {
+    width: 800px;
+    height: 450px;
+    margin-left: calc(50vw - 400px);
+  }
+}
+.skylinewideimg {
+  background-image: url(assets/skyline_wide.jpg);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  background: rgba(0,0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.05) 80%, rgba(0,0,0,0.1) 100%);
+}
+
+a[id] {
+  padding-top: calc(var(--topnav-height) + 2rem);
+}
+
+#nav {
+  position:absolute;
+  top:0;
+}
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+nav a {
+  display: block;
+  width: fit-content;
+  padding: 0.5rem;
+}
+a[href="#nav"] {
+  border-radius: 3px;
+  padding: 5px;
+  margin: 0 2rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+a[href]:hover {
+  background: rgba(0,0,0,0.1);
+  transform: translate(0, -2px);
+}
+
+section {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  /* <a href="https://www.freepik.com/free-photo/paper-texture_1034631.htm#query=paper%20texture&position=21&from_view=keyword&track=ais">Image by kues1</a> on Freepik */
+  padding-left: 5vw;
+  padding-right: 5vw;
+  background: url(assets/paper-texture-tiled.jpg);
+}
+
+.card {
+  border: 1px black;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  width: 80vw;
+  margin: 3rem auto;
+  margin-top: 2rem;
+  padding: 1rem 10vw;
+  background: url(assets/paper-texture-tiled.jpg);
+}
+
+.card h2 {
+  font-weight: 500;
+  font-family: 'Sacramento', cursive;
+  font-size: 3rem;
+}
+
+section:nth-child(odd) {
+  background: url(assets/paper-texture-tiled-green.jpg); 
+}
+
+section:last-of-type {
+  padding-bottom: 70vh;
+}
+
+address {
+  display: inline;
+}
+
+.save_the_date_background {
+  background-image: url(assets/skyline_cropped.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.save_the_date_body {
+  font-size: 1.6rem;
+}
+
+.date_to_save {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.img2x3 {
+  width: 60vw;
+  height: 90vw;
+}
+.img3x2 {
+  width: 90vw;
+  height: 60vw;
+}
+.img3x2, .img2x3 {
+  border:  2px solid black;
+  border-radius: 1rem;
+  box-shadow: 1rem 1rem 1rem rgba(0,0,0,0.1);
+  background-size: cover;
+  margin: 2rem auto;
+}
+
+.brideimg {
+  background-image: url(assets/bride.jpg);
+}
+.coupleimg {
+  background-image: url(assets/couple.jpg);
+}
+.datesimg {
+  background-image: url(assets/dates.jpg);
+}
+.ringimg {
+  background-image: url(assets/ring.jpg);
+}
+.groomimg {
+  background-image: url(assets/groom.jpg);
+}
