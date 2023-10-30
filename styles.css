@@ -133,6 +133,7 @@ section {
 .roses_start {
     width: 9rem;
     height: 12.8rem;
+    /* Original image URL: https://www.pinterest.com/pin/506514289357263420/ */
     background: url("assets/Roses_transparent.png");
     background-size: contain;
     position: absolute;
@@ -155,13 +156,14 @@ section {
 .nurture_bird {
   content: " ";
   display: block;
-  width: 8rem;
-  height: 11.1rem;
+  width: 6.7rem;
+  height: 9.18rem;
+  /* Original image by Nick Wolff https://www.etsy.com/shop/Nickasso based on Porter Robinson's Nurture album art */
   background: url("assets/nurture_bird.png");
   background-size: contain;
   position: absolute;
   left: 100%;
-  transform: translate(83%,-75%) rotate(-20deg);
+  transform: translate(112%,-75%) rotate(-20deg);
 }
 
 .calendar_buttons_container {
