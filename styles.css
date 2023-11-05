@@ -54,13 +54,14 @@ body {
   box-shadow: 1rem 1rem 1rem rgba(0,0,0,0.1);
 }
 
-@media screen and (max-width:800px) {
+@media (max-width:800px) {
   .img-fullwidth {
     width: 800px;
     height: 450px;
     margin-left: calc(50vw - 400px);
   }
 }
+
 .skylinewideimg {
   background-image: url(assets/skyline_wide.jpg);
 }
@@ -258,4 +259,45 @@ address {
 }
 .groomimg {
   background-image: url(assets/groom.jpg);
+}
+
+
+
+
+@media print {
+  .save_the_date_background {
+    background: none;
+  }
+  
+  .card {
+    background: none;
+    width: 100%;
+    margin: 0;
+    max-width: 100%;
+    padding: 1rem 8rem;
+  }
+
+  .calendar_buttons_container {
+    display: none;
+  }
+  
+  .fancy_underline {
+    margin-bottom: 6rem;
+  }
+
+  .brideimg {
+    background-image: url(assets/originals/bride.jpg);
+  }
+  .coupleimg {
+    background-image: url(assets/originals/couple.jpg);
+  }
+  .datesimg {
+    background-image: url(assets/originals/dates.jpg);
+  }
+  .ringimg {
+    background-image: url(assets/originals/ring.jpg);
+  }
+  .groomimg {
+    background-image: url(assets/originals/groom.jpg);
+  }
 }
