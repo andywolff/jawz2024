@@ -8,14 +8,34 @@ body {
   font-family: 'Work Sans', sans-serif;
 }
 
+.material-symbols-outlined {
+  font-size: inherit !important;
+  transform: translate(0, 20%);
+}
+
+.shark_cursor {
+  cursor: url(assets/shark_groom_cursor.png), auto;
+}
+
+.shark_cursor label,
+.shark_cursor input,
+.shark_cursor a,
+.shark_cursor button {
+  cursor: url(assets/Shark_groom_cursor_active.png), auto;
+}
+
+button {
+  cursor: url(assets/Shark_groom_cursor_active.png) !important, auto;
+}
+
 .topnav {
   margin: 0;
   padding: 2rem;
-  color: white;
+  /* color: white; */
 }
 
 .title {
-  font-family: 'Sacramento', cursive;
+  font-family: 'Satisfy', cursive;
   font-size: 2rem;
   margin-bottom: 0.5rem;
   text-align: center;
@@ -26,10 +46,11 @@ body {
   top: 0%;
   left: 0%;
   right: 0%;
-  bottom:  auto;
+  bottom: auto;
   backdrop-filter: blur(13px);
-  background-color: rgba(90,90,90,0.6);
-  text-shadow: 0.2rem 0.2rem 10px #39495c;
+  background-color: rgba(255, 255, 255, 0.6);
+  /* text-shadow: 0.2rem 0.2rem 10px #bbeeff; */
+  text-shadow: 0.2rem 0.2rem 10px rgba(0, 0, 0, 0.2);
   z-index: 9;
 }
 
@@ -51,7 +72,77 @@ body {
   background-position-y: center;
   min-height: 50vw;
   border-bottom: 2px solid black;
-  box-shadow: 1rem 1rem 1rem rgba(0,0,0,0.1);
+  box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.event_info_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-evenly;
+  justify-content: space-evenly;
+}
+
+.event_info_item {
+  flex-basis: 20rem;
+  padding: 2rem;
+  margin: 1rem;
+}
+
+.event_info_item b {
+  display: block;
+  text-align: center;
+  margin-bottom: 1rem;
+  width: 100%;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+}
+
+.event_info_item add-to-calendar-button {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+}
+
+dialog,
+.event_info_item {
+  background-color: white;
+  background: url(assets/paper-texture-tiled.jpg);
+  border: 2px solid black;
+  border-radius: 1rem;
+  box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+dialog {
+  padding: 3rem;
+}
+
+dialog .dialogBody {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.img_container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.img_container img {
+  /* width: 100%; */
+  /* height: auto; */
+  max-width: 50vw;
+  /* min-width: 20rem; */
+  max-height: 55vh;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 1rem;
+  box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.1);
+  background-size: cover;
+  margin: 2rem auto;
 }
 
 @media (max-width:800px) {
@@ -66,43 +157,84 @@ body {
   background-image: url(assets/skyline_wide.jpg);
 }
 
-a {
+a[href] {
   color: inherit;
   text-decoration: none;
-  background: rgba(0,0,0,0);
-  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.05) 80%, rgba(0,0,0,0.1) 100%);
+  background: rgba(0, 0, 0, 0);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.05) 80%, rgba(0, 0, 0, 0.1) 100%) no-repeat center;
+  background: linear-gradient(180deg, rgba(187, 238, 255, 0) 0%, rgba(187, 238, 255, 0) 70%, rgba(187, 238, 255, 0.05) 80%, rgba(187, 238, 255, 0.1) 100%) no-repeat center;
+  /* background: rgb(187 238 255); */
+  background: linear-gradient(180deg, rgba(201, 255, 187, 0) 0%, rgba(201, 255, 187, 0) 70%, rgba(201, 255, 187, 0.2) 80%, rgba(201, 255, 187, 0.5) 100%) no-repeat center;
+  /* background: rgb(201 255 187); */
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-bottom: 1px solid rgba(201, 255, 187, 0.7);
+  transition: background 0.1s linear;
+  position: relative;
+  display: inline-block;
 }
 
-a[id] {
+a[href]::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px dashed rgb(177 196 221);
+}
+
+.main a[id] {
   padding-top: calc(var(--topnav-height) + 2rem);
+  pointer-events: none;
 }
 
 #nav {
-  position:absolute;
-  top:0;
+  position: absolute;
+  top: 0;
 }
+
 nav {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
+
 nav a {
   display: block;
   width: fit-content;
   padding: 0.5rem;
+  border-radius: 3px;
+  font-family: 'Work Sans', cursive;
+  font-size: 1.1rem;
 }
-a[href="#nav"] {
+
+.back-to-top {
+  float: right;
+  font-size: 24px;
   border-radius: 3px;
   padding: 5px;
-  margin: 0 2rem;
+  margin: 0.5rem 2rem;
+  height: 2rem;
   display: inline-flex;
   justify-content: center;
   align-items: center;
 }
+
 a[href]:hover {
-  background: rgba(0,0,0,0.1);
+  background: rgba(201, 255, 187, 0.5);
+  border: 1px solid rgba(201, 255, 187, 0.8);
   transform: translate(0, -2px);
+  transition: background 0s linear;
+}
+
+h2 {
+  font-family: 'Satisfy', cursive;
+  font-size: 2em;
+  font-weight: normal;
+  margin-bottom: 0;
+  padding-right: 8rem;
 }
 
 section {
@@ -120,6 +252,13 @@ section {
   justify-content: center;
 }
 
+.rsvp {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 2rem;
+}
+
 .fancy_underline {
   display: block;
   border: 1px solid black;
@@ -131,27 +270,34 @@ section {
   min-width: 6rem;
 }
 
+.fancy_underline.start {
+  margin-left: 0;
+  width: calc(100% - 8rem);
+  margin-top: 0;
+  margin-bottom: 6rem;
+}
+
 .roses_start {
-    width: 9rem;
-    height: 12.8rem;
-    /* Original image URL: https://www.pinterest.com/pin/506514289357263420/ */
-    background: url("assets/Roses_transparent.png");
-    background-size: contain;
-    position: absolute;
-    right: 100%;
-    transform: translate(8%,-36%) rotate(60deg);
+  width: 9rem;
+  height: 12.8rem;
+  /* Original image URL: https://www.pinterest.com/pin/506514289357263420/ */
+  background: url("assets/Roses_transparent.png");
+  background-size: contain;
+  position: absolute;
+  right: 100%;
+  transform: translate(8%, -36%) rotate(60deg);
 }
 
 .roses_end {
-    content: " ";
-    display: block;
-    width: 9rem;
-    height: 12.8rem;
-    background: url("assets/Roses_transparent.png");
-    background-size: contain;
-    position: absolute;
-    left: 100%;
-    transform: translate(-8%,-36%) scaleX(-1) rotate(60deg);
+  content: " ";
+  display: block;
+  width: 9rem;
+  height: 12.8rem;
+  background: url("assets/Roses_transparent.png");
+  background-size: contain;
+  position: absolute;
+  left: 100%;
+  transform: translate(-8%, -36%) scaleX(-1) rotate(60deg);
 }
 
 .nurture_bird {
@@ -164,13 +310,17 @@ section {
   background-size: contain;
   position: absolute;
   left: 100%;
-  transform: translate(112%,-75%) rotate(-20deg);
+  transform: translate(112%, -75%) rotate(-20deg);
+}
+
+b {
+  font-size: 1.2em;
 }
 
 .calendar_buttons_container {
-    width: calc(100% - 20rem);
-    min-width: 10rem;
-    margin: auto;
+  width: calc(100% - 20rem);
+  min-width: 10rem;
+  margin: auto;
 }
 
 .card {
@@ -184,6 +334,8 @@ section {
   padding: 1rem 10vw;
   background: url(assets/paper-texture-tiled.jpg), #efefef;
   overflow: hidden;
+  min-height: calc(100vh - 5rem);
+  min-width: 520px;
 }
 
 .card h2 {
@@ -192,14 +344,160 @@ section {
   font-size: 3rem;
   text-align: center;
   margin-bottom: 0;
+  padding: 0 4rem;
+}
+
+.rsvp_body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* padding: 1rem 10rem 0rem 10rem; */
+  width: calc(100% - 22rem);
+  margin: auto;
+  /* margin-left: 11rem; */
+  min-width: 24rem;
+  padding-top: 5rem;
+  font-size: 1.8rem;
+  font-family: 'Satisfy', sans-serif;
+}
+
+.spacer {
+  flex-grow: 1;
+  min-width: 1rem;
+}
+
+.rsvp_body .field {
+  margin: 0 0.5rem;
+  align-self: center;
+  border: none;
+  border-bottom: 1px solid black;
+  background: none;
+  text-align: right;
+  flex-grow: 1;
+  font-size: 1.1rem;
+  font-family: 'Work Sans', sans-serif;
+  min-height: 3rem;
+}
+
+.rsvp_body .field:focus-visible {
+  outline: none;
+  background: rgba(201, 255, 187, 0.5);
+}
+
+.rsvp_body label {
+  margin: 2rem 0.5rem 0.5rem 0.5rem;
+  align-self: center;
+  flex-grow: 1;
+  flex-basis: 100%;
+}
+
+.break {
+  flex-basis: 100%;
+  height: 0;
+  /* margin-bottom: 4rem; */
+}
+
+.rsvp_body input[type="submit"],
+dialog button {
+  align-self: end;
+  margin-top: 2rem;
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid black;
+  background: none;
+  padding: 0.5rem 1rem;
+}
+
+.rsvp_body input[type="submit"]:hover,
+dialog button:hover {
+  background: rgba(201, 255, 187, 0.5);
+
+  transform: translate(0, -2px);
+  transition: background 0s linear;
+}
+
+.rsvp_body .loading {
+  display: none;
+  margin-top: 2rem;
+}
+
+.rsvp_body.loading {
+  cursor: progress;
+}
+
+.rsvp_body.loading .loading {
+  display: block;
+}
+
+.rsvp_body.loading input[type="submit"] {
+  display: none;
+}
+
+.rsvp_body .success,
+.rsvp_body #error {
+  margin-top: 2rem;
+  display: none;
+  font-size: 1.1rem;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.rsvp_body.success .success {
+  display: block;
+}
+
+
+.rsvp_body.error #error {
+  display: block;
+}
+
+#error {
+  color: red;
+}
+
+.rsvp_body a[id] {
+  padding-top: 0;
+  margin-top: 2rem;
 }
 
 section:nth-child(odd) {
-  background: url(assets/paper-texture-tiled-green.jpg); 
+  /* background: url(assets/paper-texture-tiled-green.jpg); */
 }
 
 section:last-of-type {
   padding-bottom: 70vh;
+}
+
+.wedding_party_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.wedding_party_member {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.wedding_party_container h2 {
+  padding: 0;
+  margin: 2rem;
+  text-decoration-line: underline;
+  text-decoration-thickness: 3px;
+  text-decoration-color: black;
+  /* text-shadow: 2px 2px 6px rgb(143 143 143 / 50%); */
+}
+
+.wedding_party_container h2.groom_side {
+  text-decoration-color: rgb(187 238 255);
+}
+
+.wedding_party_container h2.bride_side {
+  text-decoration-color: rgb(201 255 187);
 }
 
 address {
@@ -207,7 +505,7 @@ address {
 }
 
 .save_the_date_background {
-  background: url(assets/skyline_cropped.jpg),  linear-gradient(180deg, rgb(238 231 221) 0%, rgb(216 180 121) 100%);
+  background: url(assets/skyline_cropped.jpg), linear-gradient(180deg, rgb(238 231 221) 0%, rgb(216 180 121) 100%);
   background-size: cover;
   background-position: center;
 }
@@ -232,15 +530,18 @@ address {
   max-width: 816px;
   max-height: 1224px;
 }
+
 .img3x2 {
   width: 90vw;
   height: 60vw;
 }
-.img3x2, .img2x3 {
+
+.img3x2,
+.img2x3 {
   background-color: white;
-  border:  2px solid black;
+  border: 2px solid black;
   border-radius: 1rem;
-  box-shadow: 1rem 1rem 1rem rgba(0,0,0,0.1);
+  box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.1);
   background-size: cover;
   margin: 2rem auto;
 }
@@ -248,15 +549,23 @@ address {
 .brideimg {
   background-image: url(assets/bride.jpg);
 }
+
 .coupleimg {
   background-image: url(assets/couple.jpg);
 }
+
+.couple2img {
+  background-image: url(assets/couple2.jpg);
+}
+
 .datesimg {
   background-image: url(assets/dates.jpg);
 }
+
 .ringimg {
   background-image: url(assets/ring.jpg);
 }
+
 .groomimg {
   background-image: url(assets/groom.jpg);
 }
@@ -268,7 +577,7 @@ address {
   .save_the_date_background {
     background: none;
   }
-  
+
   .card {
     background: none;
     width: 100%;
@@ -280,7 +589,7 @@ address {
   .calendar_buttons_container {
     display: none;
   }
-  
+
   .fancy_underline {
     margin-bottom: 6rem;
   }
@@ -288,15 +597,19 @@ address {
   .brideimg {
     background-image: url(assets/originals/bride.jpg);
   }
+
   .coupleimg {
     background-image: url(assets/originals/couple.jpg);
   }
+
   .datesimg {
     background-image: url(assets/originals/dates.jpg);
   }
+
   .ringimg {
     background-image: url(assets/originals/ring.jpg);
   }
+
   .groomimg {
     background-image: url(assets/originals/groom.jpg);
   }

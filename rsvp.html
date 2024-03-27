@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="robots" content="noindex">
+    <title>Jennifer Zehnder and Andrew Wolff Wedding RSVP</title>
+    <!-- Google Analytics -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G0XWDWXSGE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-G0XWDWXSGE');
+    </script>
+    <!-- End Google Analytics -->
+    <link rel="stylesheet" href="styles.css"></link>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Sacramento&family=Satisfy&family=Work+Sans:wght@300;700&family=Yellowtail&display=swap" rel="stylesheet">
+    
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  
+    <script src="assets/assetmap.js"></script>
+
+    <script>
+      const tryAgainError=new Error("Sorry, something went wrong while checking our guest list. Please try again later.");
+
+      onsubmit=function(e) {
+        e.target.classList.add("loading");
+        e.target.classList.remove("error");
+        e.target.classList.remove("success");
+        let URL = 
+          "https://script.google.com/macros/s/AKfycbw4glmD-ux_4RwoEBZc6N4vwOKqfBk6wlQZGhpMuLMyPiY5Z3nYR3FYSU4ytWiH_Ps7wg/exec?"
+          + "name=" + encodeURIComponent(e.target.elements.name.value)
+          + "&email="+ encodeURIComponent(e.target.elements.email.value);
+        console.log("Making GET request to URL: "+ URL);
+        const responsePromise = fetch(URL)
+          .then((response) => {
+            console.info("Got response: ");
+            console.info(response);
+            if (!response.ok) {
+              throw tryAgainError;
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.info(data);
+            if (data.error) {
+              throw new Error(data.error);
+            }
+            if (!(typeof data.guestDisplayName == "string") || data.guestDisplayName.length == 0
+              || !(typeof data.rsvpUrl == "string") || data.rsvpUrl.length == 0) {
+              throw tryAgainError;
+            }
+            e.target.classList.remove("loading");
+            e.target.classList.add("success");
+            let name = data.guestDisplayName;
+            let rsvpUrl = data.rsvpUrl;
+            let successText = "";
+            if (name == "Unrecognized") {
+              successText = "Sorry, we don't recognize that name and email. Our list might have a typo or something. Please email us, or proceed to the URL below.";
+            } else {
+              successText = "Success! We recognize you as: "+name+"\n";
+            }
+            document.querySelector("#success").innerText=successText;
+            document.querySelector("#rsvp_url").href=rsvpUrl;
+          })
+          .catch((error)=>{
+          e.target.classList.add("error");
+          e.target.classList.remove("loading");
+          console.error(error);
+          document.querySelector("#error").innerText="Sorry, there was a problem:\n"+error;
+        });
+
+        return false;
+      }
+    </script>
+  </head>
+  <body class="save_the_date_background shark_cursor">
+    <div class="card">
+      <h2>Please Respond by May 20th</h2>
+      <div class="fancy_underline">
+        <div class="roses_start"></div>
+        <div class="roses_end"></div>
+        <div class="nurture_bird"></div>
+      </div>
+      
+      <form class="rsvp_body"
+        onsubmit="onsubmit"
+        >
+        <label for="name">First and last name:</label>
+        <input class="field" type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input class="field" type="email" id="email" name="email" required>
+        <div class="break"></div>
+        <div class="spacer"></div>
+        <input type="submit" value="Check the list">
+        <div class="loading">Checking the list...</div>
+        <div class="break"></div>
+        <div id="error">Error</div>
+        <div class="success">
+          <span id="success"></span><br>
+          Please <a id=rsvp_url href="">click here to continue to the RSVP form.</a>
+        </div>
+      </form>
+      <br><br>
+      More info on the main <a href="wedding.html">wedding website</a>.
+      <br><br>
+      Questions? Email <a href="mailto:jawz2024@gmail.com">jawz2024@gmail.com</a>
+      <br><br>
+      <br><br>
+    </div>
+</body>
+</html>
