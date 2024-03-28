@@ -1,10 +1,10 @@
 :root {
   --topnav-height: 170px;
+  font-size: 1em;
 }
 
 body {
   margin: 0;
-  font-size: 1.1rem;
   font-family: 'Work Sans', sans-serif;
 }
 
@@ -30,13 +30,12 @@ button {
 
 .topnav {
   margin: 0;
-  padding: 2rem;
-  /* color: white; */
+  padding: 1rem;
 }
 
 .title {
   font-family: 'Satisfy', cursive;
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 0.5rem;
   text-align: center;
 }
@@ -81,6 +80,7 @@ button {
   flex-wrap: wrap;
   align-content: space-evenly;
   justify-content: space-evenly;
+  font-size: 1.2rem;
 }
 
 .event_info_item {
@@ -103,6 +103,7 @@ button {
   justify-content: center;
   align-content: center;
   width: 100%;
+  font-size: 2rem !important;
 }
 
 dialog,
@@ -170,7 +171,7 @@ a[href] {
   border-bottom: 1px solid rgba(201, 255, 187, 0.7);
   transition: background 0.1s linear;
   position: relative;
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 a[href]::after {
@@ -207,16 +208,16 @@ nav a {
   padding: 0.5rem;
   border-radius: 3px;
   font-family: 'Work Sans', cursive;
-  font-size: 1.1rem;
+  /* font-size: 1.3rem; */
 }
 
 .back-to-top {
   float: right;
-  font-size: 24px;
+  font-size: 2rem;
   border-radius: 3px;
   padding: 5px;
-  margin: 0.5rem 2rem;
-  height: 2rem;
+  margin: 0rem 2rem;
+  height: 2.5rem;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -231,7 +232,7 @@ a[href]:hover {
 
 h2 {
   font-family: 'Satisfy', cursive;
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: normal;
   margin-bottom: 0;
   padding-right: 8rem;
@@ -244,6 +245,17 @@ section {
   padding-left: 5vw;
   padding-right: 5vw;
   background: url(assets/paper-texture-tiled.jpg);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.nopadding {
+  padding:0;
+}
+
+.about_the_couple_body, .contact_us_body {
+  font-size: 1.2rem;
 }
 
 .center {
@@ -314,7 +326,7 @@ section {
 }
 
 b {
-  font-size: 1.2em;
+  font-size: 1.5rem;
 }
 
 .calendar_buttons_container {
@@ -406,6 +418,7 @@ dialog button {
   border-bottom: 1px solid black;
   background: none;
   padding: 0.5rem 1rem;
+  font-size: 2rem;
 }
 
 .rsvp_body input[type="submit"]:hover,
@@ -472,6 +485,7 @@ section:last-of-type {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  font-size: 1.5rem;
 }
 
 .wedding_party_member {
@@ -490,6 +504,13 @@ section:last-of-type {
   text-decoration-thickness: 3px;
   text-decoration-color: black;
   /* text-shadow: 2px 2px 6px rgb(143 143 143 / 50%); */
+}
+
+.wedding_party_member img {
+    margin-top: -1rem;
+    border-radius: 50%;
+    position: relative;
+    max-width: 15rem;
 }
 
 .wedding_party_container h2.groom_side {
