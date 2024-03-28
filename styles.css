@@ -418,7 +418,7 @@ dialog button {
   border-bottom: 1px solid black;
   background: none;
   padding: 0.5rem 1rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .rsvp_body input[type="submit"]:hover,
